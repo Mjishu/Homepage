@@ -2,32 +2,47 @@
     --bgColor: #EEE9DD;
     --mainColor:  #000;
     --footerAccent: #73687B;
+    --bgAccent: #dfdbd1;
+}
+html{ 
+    scroll-behavior: smooth;
+    cursor: pointer;
 }
 
+/* todo Add darkMode support */
+
+html, body{
+    margin: 0;
+}
 
 body{
     background: var(--bgColor);
-    margin: none;
     height:100%;
- 
 }
 
 svg{
     position: absolute;
     left: 20px;
+    width: 40px;
+    height: 40px;
+    transition: 1s ;
+    
+}
+
+svg:hover{
+    transform: rotate(180deg);
     width: 49px;
     height: 51px;
-    
 }
 
 .header{
     /* text-align: start; */
     position: sticky;
-    top: 0;
+    top: 10px;
+
+   
     
 }
-
-
 ul{
     display: flex;
     gap: 50px;
@@ -40,14 +55,21 @@ div{
 }
 
 .intro{
+    display: flex;
     margin-top: 85px;
+}
+
+.mainIntro{
+   
     border: 1px solid var(--mainColor);
     border-radius: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    max-width: 567px;
+    width: 567px; /*todo change this to max-width some how so that the image doesnt get fucked when changing it*/
     height: 456px;
     font-size: 42px;
     font-weight: 600;
+    margin-right: 120px;
+    
 }
 
 .introImg{
@@ -56,21 +78,31 @@ div{
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     width: 396px; /*todo change this to max-width some how so that the image doesnt get fucked when changing it*/
     height: 328px;
+    margin-right: 350px;
+    margin-top: 52px;
+    min-width: 200px;
     
 }
 
 
 .line{
-    margin-top: 150px;
+    margin-top: 50px;
     background: black;
     height: 1px;
     max-width:988px ;
     
 }
+.lineOne{
+    margin-top: 150px;
+    background: black;
+    height: 1px;
+    max-width:988px ;
+}
 .lineShort{
     background: black;
     height: 1px;
     max-width: 657px;
+    margin-top: 115px;
 }
 #languageCarousel{
     height: 120px;
@@ -88,8 +120,13 @@ a:visited{
     color: var(--mainColor);
 }
 
-a:active{
+a:link{
+    color: var(--mainColor);
+}
+
+a:hover{ 
     filter: blur(.75px);
+    /* todo Make so that its blurred if its the active tab? */
 }
 
 .colorMode{
@@ -104,10 +141,17 @@ a:active{
     font-size: 20px;
 }
 
+.contact{
+    text-align: left;
+    max-width: 1000px;
+}
+
 .contactInput{
-    max-width: 399px;
+    width: 399px;
     height: 31px;
     border: 1px solid #000;   
+    background: var(--bgColor);
+    
 }
 .contactInput:focus{
     outline: none;
@@ -115,18 +159,32 @@ a:active{
     
 }
 
-#messageInput{
-    height: 164px;
+.contact >p {
+    max-width: 726px;
 }
 
-
-
-
-.iputFields{
+.inputFields{
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 25px;
+    align-items: flex-end;
+    margin-right: 250px;
+    position: relative;
+    right: -200px;
+    margin-top: 150px;
 }
+
+.contactInput:hover{
+    background: var(--bgAccent);
+}
+
+#messageInput{
+    height: 5rem; 
+    resize: none;  
+    
+}
+
+
 
 footer{
     background: var(--footerAccent);
@@ -135,3 +193,105 @@ footer{
     flex-shrink: 0;
 }
 
+.aboutInfo{
+    max-width: 972px;
+    margin-left: 60px;
+}
+
+.about{
+    max-width: 1000px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+.boldInfo{
+    font-weight: 600;
+
+    
+}
+.italicInfo{
+    font-weight: 400;
+    
+}
+
+.projectDivs{
+    max-width: 994px;
+    height: 201px;
+    border-radius: 20px;
+    border: 1px solid #939E65;
+    margin-top: 40px;
+    
+}
+
+#submitForm{
+    border-radius: 15px;
+    border: 1px black solid;
+    background: var(--bgColor);
+}
+
+#submitForm:hover{
+    background: var(--bgAccent);
+}
+
+.projects{
+    text-align: left;
+    max-width: 1000px;
+}
+
+#linkedIn{
+    filter: brightness(0.9) saturate(00%);
+}
+
+.iconsFoot{
+    margin-left: 20px;
+    margin-top: 10px;
+    transition: 1s;
+}
+
+.iconsFoot:hover{
+    scale: 1.2;
+    
+}
+
+
+#languageHolder{
+    max-width: 650px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 3rem;
+    
+}
+
+.langElement{
+    width: 120px;
+    height: 120px;;
+    box-sizing: border-box;
+}
+
+
+#languageCarousel{
+    height: fit-content;
+    max-width: 650px;
+}
+
+#languageCarousel[data-animated="true"]{
+    overflow: hidden;
+    --webkit-mask: linear-gradient(90deg, transparent,white 10%, white 90%, transparent);
+    mask: linear-gradient(90deg, transparent,white 10%, white 90%, transparent);
+}
+
+#languageCarousel[data-animated="true"] #languageHolder{
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll{
+    to{
+        transform: translate(calc(-117% - .5rem));
+    }
+}

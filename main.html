@@ -13,16 +13,17 @@
           </svg>
         <div class="navbar">
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="#intro">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <button class="colorMode"></button>
             </ul>
         </div>
     </div>
 
-    <div class="intro">
-        <div class="mainIntro">
+    <div class="intro" id="intro">
+        <div class="mainIntro"> 
+            <!-- todo add the proper positioning for this, so its not just uniform -->
             <p class="headerName">Joshua</p>
             <p class="headerName">Colpean</p>
             <p class="headerName">Web</p>
@@ -31,41 +32,47 @@
         <img src="" alt="" class="introImg" >
         
     </div>
-    <div class="line"></div>
-    <div class="about">
-        <h1 class="aboutHeader">About</h1>
-        <p class="aboutInfo">Hello! My name is Josh and im on a web dev journey</p>
-        <p class="aboutInfo">I first started with python before setting my eyes on The Odin Project, which spawned the fascination for creating new websites!
+    <div class="lineOne"></div>
+    <div class="about" id="about">
+        <h1 class="aboutHeader ">About</h1>
+        <p class="aboutInfo boldInfo">Hello! My name is Josh and im on a web dev journey</p>
+        <p class="aboutInfo italicInfo">I first started with python before setting my eyes on The Odin Project, which spawned the fascination for creating new websites!
         Ive been interested in learning apps so thats where my mind goes when thinking of web apps!</p>
-        <p class="aboutInfo">Since creating my first project, ive been hooked on how to make the website function, but also look better and better! lets see where
+        <p class="aboutInfo">Since creating my first project, ive been hooked on how to make my website's function, but also look better and better! lets see where
         this journey takes me!</p>
     </div>
     <div class="lineShort"></div>
-    <div id="languageCarousel"></div>
+    <div id="languageCarousel">
+        <div id="languageHolder">
+        </div>
+    </div>
     <div class="line"></div>
     <div class="projects">
+        <h1 class="headerProjects">Projects</h1>
         <div class="projectDivs"></div>
         <div class="projectDivs"></div>
         <div class="projectDivs"></div>
     </div>
     <div class="line"></div>
-    <div class="contact">
+    <div class="contact" id="contact">
         <h1>Contact</h1>
         <p>Currently open to exploring options, feel free to send me a question or message, ill get back as soon as possible</p>
 
-        <div class="inputFields">
-            <input type="text" class="contactInput" placeholder="Name">
+
+        <form class="inputFields">
+            <input type="text" class="contactInput" placeholder="Name"> 
             <input type="text" class="contactInput" placeholder="Email">
-            <input type="text" class="contactInput" id="messageInput" placeholder="Message">
-        </div>
+            <textarea type="text" class="contactInput" id="messageInput" placeholder="Message"></textarea>
+            <button id="submitForm">Send</button>
+        </form>
 
         <img src="" alt="" class="icons">
         <img src="" alt="" class="icons">
     </div>
 
     <footer>
-        <img src="" alt="" class="iconsFoot">
-        <img src="" alt="" class="iconsFoot">
+        <a href="https://github.com/Mjishu" target="_blank"><img src="imgs/github-mark.png" alt="" class="iconsFoot" width="40" height="40" id="git"></a>
+        <a href="https://www.linkedin.com/?trk=guest_homepage-basic_nav-header-logo" target="_blank"><img src="imgs/LI-In-Bug.png" alt="" class="iconsFoot" width="40" height="40" id="linkedIn"></a>
     </footer>
 
     <script src="app.js"></script>
