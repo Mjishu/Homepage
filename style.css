@@ -1,8 +1,11 @@
 :root{
     --bgColor: #EEE9DD;
-    --mainColor:  #000;
-    --footerAccent: #73687B;
+    --mainColor:  #31312D;
+    --footerAccent: #49484A;
     --bgAccent: #dfdbd1;
+
+    --darkBg: #717172;
+    --darkMain: #DEDED0;
 }
 html{ 
     scroll-behavior: smooth;
@@ -18,6 +21,8 @@ html, body{
 body{
     background: var(--bgColor);
     height:100%;
+
+    transition: background-color 200ms;
 }
 
 svg{
@@ -47,6 +52,7 @@ ul{
     display: flex;
     gap: 50px;
     justify-content: end;
+    background-color: none;
 }
 
 div{
@@ -111,6 +117,7 @@ div{
 a{
     text-decoration: none;
     font-size: 24px;
+    text-shadow: 0 1px 3px var(--bgColor);
 }
 li{
     list-style: none;
@@ -129,12 +136,7 @@ a:hover{
     /* todo Make so that its blurred if its the active tab? */
 }
 
-.colorMode{
-    width: 70px;
-    height: 35px;
-    border-radius: 28px;
-    border: 1px solid black;
-}
+
 
 .contact > p{
     max-width: 726px;
@@ -144,6 +146,7 @@ a:hover{
 .contact{
     text-align: left;
     max-width: 1000px;
+    
 }
 
 .contactInput{
@@ -191,6 +194,8 @@ footer{
     margin: 0;
     height: 57px;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .aboutInfo{
@@ -219,7 +224,8 @@ footer{
     max-width: 994px;
     height: 201px;
     border-radius: 20px;
-    border: 1px solid #939E65;
+    border: 1px solid var(--darkMain);
+    box-shadow: 0 0 3px #000;
     margin-top: 40px;
     
 }
@@ -227,7 +233,7 @@ footer{
 #submitForm{
     border-radius: 15px;
     border: 1px black solid;
-    background: var(--bgColor);
+    background: none;
 }
 
 #submitForm:hover{
@@ -280,18 +286,114 @@ footer{
 
 #languageCarousel[data-animated="true"]{
     overflow: hidden;
-    --webkit-mask: linear-gradient(90deg, transparent,white 10%, white 90%, transparent);
-    mask: linear-gradient(90deg, transparent,white 10%, white 90%, transparent);
+    --webkit-mask: linear-gradient(90deg, transparent,white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent,white 20%, white 80%, transparent);
 }
 
 #languageCarousel[data-animated="true"] #languageHolder{
-    width: max-content;
+    /* width: max-content; */
     flex-wrap: nowrap;
     animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll{
     to{
-        transform: translate(calc(-117% - .5rem));
+        transform: translate(calc(-190% - 0.5rem)); /* *HGDFJ AHGDFAJH FDASHJFAHSJDJ HASDF*/
     }
 }
+
+.colorMode{
+    width: 70px;
+    height: 35px;
+
+    margin: 0;
+    position: relative;
+    
+}
+
+.sun, .moon{
+    width: fit-content;
+    height: fit-content;
+    transition: transform .5s ease;
+    
+}
+
+.moon{
+    position: absolute;
+    inset: 0;
+}
+
+.moon-logo{
+    opacity: 0;
+    transform: translateY(20%) rotateZ(50deg);
+    transition: all 1s ease;
+}
+
+.sun-logo{
+    opacity: 1;
+    transform: translateY(0%) rotateZ(0deg);
+    transition: all 1s ease;
+}
+
+.animate-sun{
+    opacity: 0;
+    transform: translateY(20%) rotateZ(100deg);
+    
+}
+
+.animate-moon{
+    opacity: 1;
+    transform: translateY(0%) rotateZ(0deg);
+
+}
+
+.sun:hover, .moon:hover{
+    transform: scale(1.2);
+}
+
+
+.dark{
+    background: var(--darkBg); 
+    color: var(--darkMain) ;
+}
+
+
+
+/* todo Animation isnt lined up still and need to make it repeat somehow, its still showing empty space even tho i have a lot of content there */
+/* todo AND DARK MODE TOO */
+
+@media(max-width:1200px ) and (min-width:601px){
+
+    .mainIntro{
+        position: relative;
+        left: 200px;
+        width: 600px ;
+    }
+    .introImg{
+        width: 400px;
+        position: relative;
+        left: 200px;
+    }
+}
+
+@media (max-width:600px){
+    body{
+        padding: 5px;
+        padding-bottom: 0;
+    }
+    .intro{
+        display: inline-block;
+    }
+    .mainIntro{
+        width: 300px;
+        position:relative;
+        right: 280px;
+    }
+    .introImg{
+        width: 300px;
+        height: auto;
+        position: relative;
+        margin-left: 80px;
+    }
+}
+
